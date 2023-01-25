@@ -1,0 +1,23 @@
+html{
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
+header,h1,nav,main,article,aside,footer{
+	padding:0;
+	margin:0;
+	border:1px solid black;
+}
+
+header{
+	display:flex;
+}
+
+main{
+	display:flex;
+}
+
+nav{
+	display:flex;
+}
+
