@@ -3,7 +3,7 @@
 		{"id":"parking", 
 		"name":"Parking de Enti", 
 		"description":"El Parking que no puedes usar",
-		"items":["piedra","bicicleta"]
+		"items":["piedra","bicicleta"],
 		"doors":["principal","salida"]}
 	]
 	"items":[
