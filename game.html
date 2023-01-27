@@ -6,8 +6,17 @@
 		<h1>Daniel Perez Gonzalez, pagina del Pastafarismo</h1>
 		
 		<link rel="stylesheet" href="base.css" />
+		<link rel="stylesheet" href="game.css" />
 		
 		<script>
+			let game_data;
+			function fame(data)
+			{
+				game_data = data;
+				
+				document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerram!</strong> El juego de terror definitivo.</p>";
+				document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_data.rooms[0].name+". ¿Que quieres hacer?</p>;
+			}
 			fetch("https://danielperezgonz.github.io/game.json").then(response => response.json()).then(data => console.log(data));
 		</script>
 	</head>
@@ -27,6 +36,12 @@
 			<article>
 				<h2>Articulo</h2>
 			</article>
+			
+			<form>
+				<div id="terminal">	</div>
+				<input type="text" id="commands"/>
+				<input type="submit" id="action"/>
+			</form>
 			
 			<aside>
 				<h2>Lateral</h2>
