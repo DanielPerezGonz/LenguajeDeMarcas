@@ -1,5 +1,8 @@
 #teminal{
 	border:2px solid black;
 	min-width:240px;
-	min-height:120px;
+	height:120px;
+	overflow:scroll;
+	display:flex;
+	flex-direction:column-reverse;
 }

@@ -15,28 +15,28 @@
 		{"id":"Hall", 
 		"name":"Hall principal", 
 		"description":"Hall donde reunirse a llorar",
-		"items":["piedra","bicicleta"],
+		"items":["detector"],
 		"doors":["principal","ordenadores"]},
 		
-		{"id":"parking", 
-		"name":"Parking de Enti", 
-		"description":"El Parking que no puedes usar",
-		"items":["piedra","bicicleta"],
-		"doors":["principal","salida"]},
+		{"id":"baño", 
+		"name":"Baño apestoso", 
+		"description":"No, en serio, apesta, viola el tratado de versalles",
+		"items":["piedra","papel"],
+		"doors":["wc","ventana"]},
 		
-		{"id":"parking", 
-		"name":"Parking de Enti", 
-		"description":"El Parking que no puedes usar",
-		"items":["piedra","bicicleta"],
-		"doors":["principal","salida"]}
+		{"id":"secretaria", 
+		"name":"Secretaria de Enti", 
+		"description":"El unico lugar con bolis de todo el edificio",
+		"items":["boligrafo"],
+		"doors":["secretaria"]}
 	],
 	"items":[
 		{"id":"piedra", "name":"Pedrusco musgoso", "description":"Es una piedra sucia","pickable":true},
 		{"id":"bicicleta", "name":"Bicicleta mugrosa", "description":"Algun alumno la abandono","pickable":false},
-		{"id":"piedra", "name":"Pedrusco musgoso", "description":"Es una piedra sucia","pickable":true},
-		{"id":"piedra", "name":"Pedrusco musgoso", "description":"Es una piedra sucia","pickable":true},
-		{"id":"piedra", "name":"Pedrusco musgoso", "description":"Es una piedra sucia","pickable":true},
-		{"id":"piedra", "name":"Pedrusco musgoso", "description":"Es una piedra sucia","pickable":true}
+		{"id":"boligrafo", "name":"Boli azul", "description":"Boli medio gastado usado para hacer los terribles examenes escritos","pickable":true},
+		{"id":"papel", "name":"Papel de baño", "description":"Raspa","pickable":true},
+		{"id":"vaso", "name":"Vaso vacio", "description":"Aun se puede oler el olor a chocolate caliente...","pickable":true},
+		{"id":"detector", "name":"Detector de temperatura", "description":"\"Temperatura correcta\" escuchas mientras pasas de largo","pickable":false}
 	],
 	"doors":[
 		{"id":"principal", "description":"Puerta de entrada a ENTI","rooms":["parking","hall"]},
