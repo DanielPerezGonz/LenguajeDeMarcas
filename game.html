@@ -1,152 +1,176 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Pagina de prueba</title>
-		
-		<h1>Daniel Perez Gonzalez, pagina del Pastafarismo</h1>
+		<title>Pagina de Juego</title>
 		
 		<link rel="stylesheet" href="base.css" />
 		<link rel="stylesheet" href="game.css" />
 		
 		<script>
 			let game_data;
-			
+
 			let current_room = 0;
 			let items_picked = [];
-			
-			function game(data)
+
+			function game (data)
 			{
 				game_data = data;
 				
 				document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerrame!</strong> El juego de terror definitivo.</p>";
-				document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_data.rooms[0].name+". ¿Que quieres hacer?</p>";
+				document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_data.rooms[current_room].name+". ¿Qué quieres hacer?</p>";
 			}
-			
-			function terminal_out(info)
+
+			function terminal_out (info)
 			{
 				let terminal = document.getElementById("terminal");
-				
+
 				terminal.innerHTML += info;
-				
+
 				terminal.scrollTop = terminal.scrollHeight;
 			}
-			
-			function parseCommand(command)
+
+			function parseCommand (command)
 			{
 				console.log("El comando ", command);
-				switch(command){
+				switch (command){
 					case "ver":
 						terminal_out("<p>"+game_data.rooms[current_room].description+"</p>");
 						break;
+
 					case "ir":
 						let doors = "";
 						let doors_num = game_data.rooms[current_room].doors.length;
-						for(let i = 0; i < doors_num; i++){
+						for (let i = 0; i < doors_num; i++){
 							doors += game_data.rooms[current_room].doors[i]+", ";
 						}
 						terminal_out("<p>Puedes ir a: "+doors+"</p>");
 						break;
+
 					default:
-						terminal_out("<p><strong>Error</strong>: "+command+" comando no encontrado</p>");
-						break;
+						terminal_out("<p><strong>Error</strong>: "+command+" commando no encontrado</p>");
+
+
 				}
 			}
-			
-			getRoomNumber(room)
+
+
+			function getRoomNumber (room)
 			{
-				for(let i = 0; i < game_data.rooms.length; i++){
-					if(game_data.rooms[i].id == room) {
+				for (let i = 0; i < game_data.rooms.length; i++){
+					if (game_data.rooms[i].id == room){
 						return i;
 					}
 				}
-				
+
 				return -1;
 			}
-			
-			getDoorNumber(door)
+
+			function getDoorNumber (door)
 			{
-				for(let i = 0; i < game_data.doors.length; i++){
-					if(game_data.doors[i].id == door) {
+				for (let i = 0; i < game_data.doors.length; i++){
+					if (game_data.doors[i].id == door){
 						return i;
 					}
 				}
-				
+
 				return -1;
 			}
-			
-			function parseInstruction(instruction)
+
+
+			function parseInstruction (instruction)
 			{
-				console.log("La instruccion ", instruction);
-				switch(command){
+
+				console.log("La instrucción ", instruction);
+
+				switch (instruction[0]){
 					case "ver":
-						terminal_out("<p>"+game_data.rooms[current_room].description+"</p>");
+
 						break;
+
 					case "ir":
-						let door_num = getDoorNumber(instruction[1])
+						let door_num = getDoorNumber(instruction[1]);
 						if (door_num < 0){
-							console.log("Puerta erronea");
+							console.log("Puerta errónea");
 							return;
 						}
-						
-						let room_num = getRoomNumber(game_data.doors[door_num].rooms.rooms[0]);
+
+						console.log("Door Num: ",door_num);
+
+						let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
+						if (room_num < 0){
+							console.log("Habitación errónea");
+							return;
+						}
+
+						console.log("Room Num: ", room_num);
+
 						if (room_num == current_room){
 							current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
 						}
 						else{
 							current_room = room_num;
 						}
-						
+
 						break;
+
 					case "coger":
+
 						break;
+
+
 					default:
-						terminal_out("<p><strong>Error</strong>: "+instruction+" comando no encontrado</p>");
-						break;
+						terminal_out("<p><strong>Error</strong>: "+instruction[0]+" commando no encontrado</p>");
 				}
 			}
-			
+
 			function readAction ()
 			{
 				let instruction = document.getElementById("commands").value;
 				let instruction_trim = instruction.trim();
-				
+
 				let data = instruction_trim.split(" ");
-				
-				if(data.length == 0 || instruction_trim == ""){
-					document.getElementById("terminal").innerHTML += "<p><strong>Error</strong> Escribe una instruccion</p>";
+
+				if (data.length == 0 || instruction_trim == ""){
+					terminal_out("<p><strong>Error</strong>: escribe una instrucción</p>");
 					return;
 				}
-				if(data.length == 1){
+
+				if (data.length == 1){
 					parseCommand(data[0]);
 				}
 				else{
 					parseInstruction(data);
 				}
+
 			}
+
 			
 			fetch("https://danielperezgonz.github.io/game.json").then(response => response.json()).then(data => game(data));
 		</script>
 	</head>
 	<body>
 		<header>
+			<h1>Daniel Perez Gonzalez, pagina de Juego</h1>
+			
 			<nav>
 				<ul id="main-menu">
 					<li id="menu-presentation"><a href="index.html">Presentacion</a></li>
 					<li id="menu-hobbies"><a href="hobbies.html">Hobbies</a></li>
 					<li id="menu-contact"><a href="contact.html">Contacto</a></li>
 					<li id="menu-cv"><a href="cv.html">CV</a></li>
+					<li id="menu-game"><a href="game.html">Juego</a></li>
 				</ul>
 			</nav>
 		</header>
 		
 		<main>
 			<article>
-				<h2>Articulo</h2>
+				<h2>Juegazo</h2>
 				
 				<form>
 					<div id="terminal"></div>
 					<input type="text" id="commands"/>
-					<input type="submit" id="action"/>
+					<input type="submit" value="Accion" onclick="readAction(); return false";/>
 				</form>
 			</article>
 			<aside>
