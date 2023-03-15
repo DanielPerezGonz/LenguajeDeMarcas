@@ -35,9 +35,6 @@ function parseCommand (command)
 				if (i < door_num - 1){
 					doors += game_data.rooms[current_room].doors[i]+", ";
 				}
-				else{
-					doors += game_data.rooms[current_room].doors[i];
-				}
 			}
 			terminal_out("<p>Puedes ir a: "+doors+"</p>");
 			break;
