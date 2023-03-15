@@ -32,7 +32,7 @@ function parseCommand (command)
 			let doors = "";
 			let doors_num = game_data.rooms[current_room].doors.length;
 			for (let i = 0; i < doors_num; i++){
-				if (i < door_num - 1){
+				if (i != door_num - 1){
 					doors += game_data.rooms[current_room].doors[i]+", ";
 				}
 				else{
