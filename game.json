@@ -3,25 +3,25 @@
 		{"id":"parking", 
 		"name":"Parking de Enti", 
 		"description":"El Parking que no puedes usar",
-		"items":["piedra","bicicleta"],
-		"doors":["principal","salida"]},
+		"items":["piedra", "bicicleta"],
+		"doors":["principal","salida","ventana"]},
 		
 		{"id":"sala_ordenadores", 
 		"name":"Sala de ordenadores", 
 		"description":"Una sala de ordenadores que no huele precisamente bien",
-		"items":["piedra","bicicleta"],
+		"items":["piedra", "bicicleta"],
 		"doors":["ordenadores"]},
 		
 		{"id":"hall", 
 		"name":"Hall principal", 
 		"description":"Hall donde reunirse a llorar",
 		"items":["detector"],
-		"doors":["principal","ordenadores"]},
+		"doors":["principal","ordenadores","secretaria","wc"]},
 		
 		{"id":"baño", 
 		"name":"Baño apestoso", 
 		"description":"No, en serio, apesta, viola el tratado de versalles",
-		"items":["piedra","papel"],
+		"items":["piedra", "papel"],
 		"doors":["wc","ventana"]},
 		
 		{"id":"secretaria", 
@@ -40,6 +40,10 @@
 	],
 	"doors":[
 		{"id":"principal", "description":"Puerta de entrada a ENTI","rooms":["parking","hall"]},
+		{"id":"ordenadores", "description":"Puerta de entrada a ENTI","rooms":["sala_ordenadores","hall"]},
+		{"id":"wc", "description":"Puerta de entrada a ENTI","rooms":["baño","hall"]},
+		{"id":"ventana", "description":"Puerta de entrada a ENTI","rooms":["parking","baño"]},
+		{"id":"secretaria", "description":"Puerta de entrada a ENTI","rooms":["secretaria","hall"]},
 		{"id":"salida","description":"La salvacion"}
 	]
 	

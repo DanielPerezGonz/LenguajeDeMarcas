@@ -41,7 +41,9 @@ function parseCommand (command)
 			}
 			terminal_out("<p>Puedes ir a: "+doors+"</p>");
 			break;
-
+		case "coger":
+			terminal_out("<p>"+game_data.rooms[current_room].items+"</p>");
+			break;
 		default:
 			terminal_out("<p><strong>Error</strong>: "+command+" commando no encontrado</p>");
 			break;
@@ -54,6 +56,18 @@ function getRoomNumber (room)
 {
 	for (let i = 0; i < game_data.rooms.length; i++){
 		if (game_data.rooms[i].id == room){
+			console.log("room ", i);
+			return i;
+		}
+	}
+
+	return -1;
+}
+
+function getItemNumber (item)
+{
+	for (let i = 0; i < game_data.rooms.length; i++){
+		if (game_data.rooms[i].id == item){
 			console.log("room ", i);
 			return i;
 		}
@@ -80,10 +94,6 @@ function parseInstruction (instruction)
 	console.log("La instrucción ", instruction);
 
 	switch (instruction[0]){
-		case "ver":
-
-			break;
-
 		case "ir":
 			let door_num = getDoorNumber(instruction[1]);
 			if (door_num < 0){
