@@ -12,7 +12,7 @@
 		"items":["piedra","bicicleta"],
 		"doors":["ordenadores"]},
 		
-		{"id":"Hall", 
+		{"id":"hall", 
 		"name":"Hall principal", 
 		"description":"Hall donde reunirse a llorar",
 		"items":["detector"],

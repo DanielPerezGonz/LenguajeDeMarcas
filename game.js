@@ -32,7 +32,12 @@ function parseCommand (command)
 			let doors = "";
 			let doors_num = game_data.rooms[current_room].doors.length;
 			for (let i = 0; i < doors_num; i++){
-				doors += game_data.rooms[current_room].doors[i]+", ";
+				if (i < doors_num - 1){
+					doors += game_data.rooms[current_room].doors[i]+", ";
+				}
+				else{
+					doors += game_data.rooms[current_room].doors[i];
+				}
 			}
 			terminal_out("<p>Puedes ir a: "+doors+"</p>");
 			break;
@@ -49,6 +54,7 @@ function getRoomNumber (room)
 {
 	for (let i = 0; i < game_data.rooms.length; i++){
 		if (game_data.rooms[i].id == room){
+			console.log("room ", i);
 			return i;
 		}
 	}
@@ -92,15 +98,18 @@ function parseInstruction (instruction)
 				console.log("Habitación errónea");
 				return;
 			}
-
+			console.log("Current room: ", current_room);
 			console.log("Room Num: ", room_num);
 						
 			if (room_num == current_room){
+				console.log("la habitacion: ", game_data.doors[door_num].rooms[1], ", ", game_data.rooms[2].id);
 				current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
 			}
 			else{
 				current_room = room_num;
 			}
+
+			console.log("Current Num: ", current_room);
 
 			break;
 
