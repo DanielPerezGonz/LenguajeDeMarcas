@@ -44,6 +44,23 @@ function parseCommand (command)
 		case "coger":
 			terminal_out("<p>"+game_data.rooms[current_room].items+"</p>");
 			break;
+		case "inventario":
+			let items = "";
+			if (game_data.inventory.length <= 0){
+				terminal_out("<p>No tienes ningun objeto</p>")
+			}
+			else{
+				for(let i = 0; i < game_data.inventory.length; i++){
+					if (i < game_data.inventory.length - 1){
+						items += game_data.inventory[i].id+", ";
+					}
+					else{
+						items += game_data.inventory[i].id;
+					}
+				}
+				terminal_out("<p>"+items+"</p>");
+			}
+			break;
 		default:
 			terminal_out("<p><strong>Error</strong>: "+command+" commando no encontrado</p>");
 			break;
@@ -66,7 +83,8 @@ function getRoomNumber (room)
 function getItemNumber (item)
 {
 	for (let i = 0; i < game_data.rooms[current_room].items.length; i++){
-		if (game_data.rooms[current_room].items[i].id == item){
+		console.log(game_data.rooms[current_room].items[i]);
+		if (game_data.rooms[current_room].items[i] == item){
 			for(let o = 0; o < game_data.items.length; o++){
 				if (game_data.items[o].id == item){
 					return o;
@@ -130,7 +148,7 @@ function parseInstruction (instruction)
 		case "coger":
 			let item_num = getItemNumber(instruction[1]);
 			if (item_num < 0){
-				console.log("Puerta errónea");
+				console.log("Item erróneo");
 				return;
 			}
 
@@ -142,8 +160,15 @@ function parseInstruction (instruction)
 						
 			
 			else{
-				current_room = room_num;
+				game_data.inventory.push({"id": game_data.items[item_num].id});
+				for (let i = 0; i < game_data.rooms[current_room].items.length; i++){
+					if (game_data.rooms[current_room].items[i] == instruction[1]){
+						game_data.rooms[current_room].items.splice(i,1);
+					}
+				}
 			}
+			console.log("Item nuevo del inventario: ", game_data.inventory[0].id)
+
 
 			break;
 
