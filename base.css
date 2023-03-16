@@ -1,23 +1,86 @@
-html{
-	font-family: 'Ubuntu', sans-serif;
-}
-
-
-header,h1,nav,main,article,aside,footer{
-	padding:0;
-	margin:0;
-	border:1px solid black;
-}
-
-header{
-	display:flex;
-}
-
-main{
-	display:flex;
-}
-
-nav{
-	display:flex;
-}
-
+body {
+	background-color: #F2F2F0;
+	
+  }
+   
+  nav{
+	  position:relative;	
+	  align-items:center;
+	  margin-right:20px;
+	  
+  }
+  nav ul{padding-inline-start:20px;
+	  display:flex;
+	   align-items: center;
+	   margin:0;}
+  nav ul li{
+	  display:inline;
+	  margin-right:20px;
+  }
+  nav ul li a{
+  text-decoration:none;
+  color:#8C7D69;
+  font-size:14px;
+  font-family:arial;}
+  nav ul li a:hover{color:#C3C3C3;}
+  #nombre{font-size:35px;
+  font-family:starsight; }
+  
+  .especial{ margin-right:0;
+	margin-left: auto;
+  }
+  
+  hr{width:97%;
+  margin-top:0;
+  background:#806C5A}
+  
+  #form{
+	  text-align:left;
+  }
+  
+  #titulo{
+  
+  position:relative;
+  top:20px;}
+  h1{font-family:starsight;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+   color:#595340;
+   margin-bottom:0;
+   font-weight:500;
+   font-size:86px;
+  top:100;
+   }
+   h2{font-family:starsight;
+   display: flex;	
+   align-items:center;
+   justify-content: space-around;
+   color:#877D6F;
+   font-weight:100;
+   margin-top:0;
+   font-size:21px;
+   letter-spacing:0.1em;
+   margin-bottom:50px;}
+   
+   h3{font-family:starsight;
+   align-items:left;
+   justify-content: space-around;
+   color:#877D6F;
+   font-weight:100;
+   margin-top:0;
+   font-size:21px;
+   letter-spacing:0.1em;
+   margin-bottom:50px;}
+  
+  @font-face{
+		font-family:"galine";
+	src:
+	url("Tipo/Galine.woff") format("woff"),
+	url("Tipo/Galine.ttf");}
+  @font-face{
+		font-family:"starsight";
+	src:
+	url("Tipo/Starsight-Light.woff") format("woff"),
+	url("Tipo/Starsight-Light.otf");}
+  

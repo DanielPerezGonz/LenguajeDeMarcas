@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contacto</title>
+		
+		<h1>Daniel Perez Gonzalez, Contacto</h1>
+		
+		<link rel="stylesheet" href="base.css" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul id="main-menu">
+					<li id="menu-presentation"><a href="index.html">Presentacion</a></li>
+					<li id="menu-hobbies"><a href="hobbies.html">Hobbies</a></li>
+					<li id="menu-contact"><a href="contact.html">Contacto</a></li>
+					<li id="menu-cv"><a href="cv.html">CV</a></li>
+					<li id="menu-game"><a href="game.html">Juego</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main>
+            <h2>Formulario de Contacto</h2>
+                
+                <form method="POST">
+                    <p><label for="name"> Nombre: </label> <input type="text" name="name" id="name" /> </p>
+                    <p><label for="company"> Empresa: </label> <input type="text" name="company" id="company" /> </p>
+                    <p><label for="email"> E-mail: </label> <input type="email" name="email" id="email" /> </p>
+                    
+                    <p><label for="country"> País: </label> <select name="country" id="country">
+                        <option value="af">Afganistán</option>
+                        <option value="al">Albania</option>
+                        <option value="bm">Bermudas</option>
+                        <option value="bo">Bolivia</option>
+                        <option value="ba">Bosnia y Hercegovina</option>
+                        <option value="bw">Botsuana</option>
+                        <option value="sv">El Salvador</option>
+                        <option value="ae">Emiratos Árabes Unidos</option>
+                        <option value="sk">Eslovaquia</option>
+                        <option value="si">Eslovenia</option>
+                        <option value="esp">España</option>
+                        <option value="fm">Estados Federados de Micronesia</option>
+                        <option value="us">Estados Unidos de América</option>
+                        <option value="ee">Estonia</option>
+                        <option value="sz">Esuatini</option>
+                        <option value="et">Etiopía</option>
+                        <option value="ph">Filipinas</option>
+                        <option value="gy">Guayana</option>
+                        <option value="gn">Guinea</option>
+                        <option value="ht">Haití</option>
+                        <option value="hn">Honduras</option>
+                        <option value="hk">Hong Kong</option>
+                        <option value="hu">Hungría</option>
+                        <option value="in">India</option>
+                        <option value="id">Indonesia</option>
+                        <option value="ir">Irán</option>
+                        <option value="iq">Iraq</option>
+                        <option value="ie">Irlanda</option>
+                        <option value="is">Islandia</option>
+                        <option value="ky">Islas Caimán</option>
+                        <option value="cc">Islas Cocos</option>
+                        <option value="il">Israel</option>
+                        <option value="it">Italia</option>
+                        <option value="jm">Jamaica</option>
+                        <option value="jp">Japón</option>
+                        <option value="lu">Luxemburgo</option>
+                        <option value="mo">Macao</option>
+                        <option value="mk">Macedonia del Norte</option>
+                        <option value="mg">Madagascar</option>
+                        <option value="my">Malasia</option>
+                        <option value="mw">Malaui</option>
+                        <option value="mv">Maldivas</option>
+                        <option value="ml">Malí</option>
+                        <option value="mt">Malta</option>
+                        <option value="ma">Marruecos</option>
+                        <option value="mx">Mexico</option>
+                        <option value="md">Moldavia</option>
+                        <option value="mn">Mongolia</option>
+                        <option value="mw">Montenegro</option>
+                        <option value="ms">Montserrat</option>
+                        <option value="mz">Mozambique</option>
+                        <option value="np">Nepal</option>
+                        <option value="ni">Nicaragua</option>
+                        <option value="pe">Perú</option>
+                        <option value="pl">Polonia</option>
+                        <option value="pt">Portugal</option>
+                        <option value="mc">Principado de Mónaco</option>
+                        <option value="pr">Puerto Rico</option>
+                        <option value="gb">Reino Unido</option>
+                        <option value="cg">República del Congo</option>
+                        <option value="do">República Dominicana</option>
+                        <option value="ro">Rumania</option>
+                        <option value="ru">Rusia</option>
+                        <option value="sn">Senegal</option>
+                        <option value="rs">Serbia</option>
+                        <option value="sl">Sierr Leona</option>
+                        <option value="sg">Singapur</option>
+                        <option value="sy">Siria</option>
+                        <option value="so">Somalia</option>
+                        <option value="za">Sudáfrica</option>
+                        <option value="sd">Sudán</option>
+                        <option value="se">Suecia</option>
+                        <option value="ch">Suiza</option>
+                        <option value="th">Tailandia</option>
+                        <option value="tw">Taiwán</option>
+                        
+                    </select> </p>
+                    
+                    <p><label for="cinco">Valoración: </label> </p>
+                        <ol>
+                            <li><input type="radio" name="rating" value="1·" id="uno" /> <label for="uno">1 (uno)</label></li>
+                            <li><input type="radio" name="rating" value="2·" id="dos" /> <label for="dos">2 (dos)</label></li>
+                            <li><input type="radio" name="rating" value="3·" id="tres"/> <label for="tres">3 (un treh)</label></li>
+                            <li><input type="radio" name="rating" value="4·" id="cuatro"/> <label for="cuatro">4 (cuatro)</label></li>
+                            <li><input type="radio" name="rating" value="5·" id="cinco"/> <label for="cinco">5 (cinco)</label></li>
+                        </ol>
+                        
+                    <p><label for="comment">Comentario </label>
+                    <textarea name="comment" id="comment"></textarea></p>
+                    
+                    <p><input id="button" type="submit" name="send" onClick="onClick()" value="Enviar" /> </p>
+                    
+                        <script>
+                            function onClick() {
+                                alert("Esto es un ejercicio de clase, no se va a enviar")
+                            }
+                        </script>
+                </form>
+            
+        </main>
+		
+		<footer>
+			<p>Daniel Perez (c) <span id="footer-year">2022</span></p>
+			
+			<script>
+				document.getElementById("footer-year").innerHTML = new Date().getFullYear();
+			</script>
+		</footer>
+	</body>
+</html>
