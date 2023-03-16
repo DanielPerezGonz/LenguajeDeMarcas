@@ -45,6 +45,7 @@
 		{"id":"ventana", "description":"Puerta de entrada a ENTI","rooms":["parking","baño"]},
 		{"id":"secretaria", "description":"Puerta de entrada a ENTI","rooms":["secretaria","hall"]},
 		{"id":"salida","description":"La salvacion"}
-	]
+	],
+	"inventory":[]
 	
 }

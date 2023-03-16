@@ -56,7 +56,6 @@ function getRoomNumber (room)
 {
 	for (let i = 0; i < game_data.rooms.length; i++){
 		if (game_data.rooms[i].id == room){
-			console.log("room ", i);
 			return i;
 		}
 	}
@@ -66,10 +65,13 @@ function getRoomNumber (room)
 
 function getItemNumber (item)
 {
-	for (let i = 0; i < game_data.rooms.length; i++){
-		if (game_data.rooms[i].id == item){
-			console.log("room ", i);
-			return i;
+	for (let i = 0; i < game_data.rooms[current_room].items.length; i++){
+		if (game_data.rooms[current_room].items[i].id == item){
+			for(let o = 0; o < game_data.items.length; o++){
+				if (game_data.items[o].id == item){
+					return o;
+				}
+			}
 		}
 	}
 
@@ -106,6 +108,7 @@ function parseInstruction (instruction)
 			let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
 			if (room_num < 0){
 				console.log("Habitación errónea");
+				terminal_out("<p>Esta habitacion no existe, creo, espero que no sea el codigo porque me mato :D</p>");
 				return;
 			}
 			console.log("Current room: ", current_room);
@@ -123,7 +126,24 @@ function parseInstruction (instruction)
 
 			break;
 
+
 		case "coger":
+			let item_num = getItemNumber(instruction[1]);
+			if (item_num < 0){
+				console.log("Puerta errónea");
+				return;
+			}
+
+			if (game_data.items[item_num].pickable == false){
+				console.log("Item no se puede coger");
+				terminal_out("<p>No puedes coger esto, no es open source</p>");
+				return;
+			}
+						
+			
+			else{
+				current_room = room_num;
+			}
 
 			break;
 
