@@ -107,7 +107,6 @@ function getDoorNumber (door)
 	return -1;
 }
 
-
 function parseInstruction (instruction)
 {
 
@@ -120,7 +119,12 @@ function parseInstruction (instruction)
 				console.log("Puerta errónea");
 				return;
 			}
-
+			if (game_data.doors[door_num].id == "salida"){
+				terminal_out("<p>Enorabuena, has salido de este infierno! Ya no tendras que abrir el visual</p>");
+				location.reload();
+				return;
+			}
+			
 			console.log("Door Num: ",door_num);
 
 			let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
